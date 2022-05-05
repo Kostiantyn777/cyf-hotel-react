@@ -5,6 +5,7 @@
 .App-logo {
   border-radius: 40px;
   height: 100px;
+  margin: 0.6rem;
 }
 
 .App-header {
@@ -54,4 +55,10 @@ tr {
 
 .card {
   width: 18rem;
+  flex-grow: 1;
+  margin: 0.6rem;
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
 }
