@@ -9,8 +9,8 @@ const TouristInfoCards = () => {
           className="card-img-top"
         />
         <div className="card-body d-flex flex-column align-items-center">
-          <h5 className="card-title">Glasgow</h5>
-          <p className="card-text">
+          <h5 className="card-title ">Glasgow</h5>
+          <p className="card-text text-center">
             Glasgow is the most populous city in Scotland and the fourth-most
             populous city in the United Kingdom, as well as being the 27th
             largest city by population in Europe.
@@ -33,7 +33,7 @@ const TouristInfoCards = () => {
         />
         <div className="card-body d-flex flex-column align-items-center">
           <h5 className="card-title">Manchester</h5>
-          <p className="card-text">
+          <p className="card-text text-center">
             Manchester is a city in North West England with a population of
             547,627 in 2018, lying within the Greater Manchester Built-up Area
             with a population of 2.7 million.
@@ -56,7 +56,7 @@ const TouristInfoCards = () => {
         />
         <div className="card-body d-flex flex-column align-items-center">
           <h5 className="card-title">London</h5>
-          <p className="card-text">
+          <p className="card-text text-center">
             As one of the world's global cities, London exerts strong influence
             on its arts, commerce, education, entertainment, fashion, finance,
             health care, media, tourism, and communications, and has sometimes
