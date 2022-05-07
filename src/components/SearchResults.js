@@ -14,7 +14,7 @@ const calculateNights = (checkInDate, checkOutDate) => {
   var a = moment(checkOutDateMoment);
   var b = moment(checkInDateMoment);
 
-  return <td>{a.diff(b, "days")}</td>;
+  return <td className="text-center">{a.diff(b, "days")}</td>;
 };
 
 const SearchResults = props => {
@@ -24,7 +24,7 @@ const SearchResults = props => {
         <thead className="thead-dark">
           <tr>
             {Object.keys(props.results[0]).map((elem, index) => (
-              <th scope="col" key={index}>
+              <th className="text-center" scope="col" key={index}>
                 {elem}
               </th>
             ))}
@@ -39,7 +39,9 @@ const SearchResults = props => {
                 <tr>
                   {/* Map trough values of each property in array of objects  */}
                   {Object.values(item).map((val, index) => (
-                    <td key={index}>{val}</td>
+                    <td className="text-center" key={index}>
+                      {val}
+                    </td>
                   ))}
 
                   {calculateNights(item.checkInDate, item.checkOutDate)}
