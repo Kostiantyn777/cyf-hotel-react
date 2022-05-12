@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import moment from "moment";
 
 const calculateNights = (checkInDate, checkOutDate) => {
@@ -18,9 +18,19 @@ const calculateNights = (checkInDate, checkOutDate) => {
 };
 
 const SearchResults = props => {
+  const [rowIndexClicked, setRowIndexClicked] = useState(null);
+
+  const handlerRowClicked = rowIndex => event => {
+    if (rowIndexClicked !== rowIndex) {
+      setRowIndexClicked(rowIndex);
+    } else {
+      setRowIndexClicked(null);
+    }
+  };
+
   return (
     <div>
-      <table className="table table-striped">
+      <table className="table">
         <thead className="thead-dark">
           <tr>
             {Object.keys(props.results[0]).map((elem, index) => (
@@ -36,7 +46,11 @@ const SearchResults = props => {
           {props.results.map((item, index) => {
             return (
               <React.Fragment key={index}>
-                <tr>
+                <tr
+                  id={index}
+                  className={rowIndexClicked === index ? "highlighted" : ""}
+                  onClick={handlerRowClicked(index)}
+                >
                   {/* Map trough values of each property in array of objects  */}
                   {Object.values(item).map((val, index) => (
                     <td className="text-center" key={index}>

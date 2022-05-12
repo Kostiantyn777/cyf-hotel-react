@@ -65,3 +65,7 @@ tr {
 div li {
   list-style-type: none;
 }
+
+.highlighted {
+  background-color: yellow;
+}
