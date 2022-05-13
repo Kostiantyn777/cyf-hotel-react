@@ -20,7 +20,7 @@ const calculateNights = (checkInDate, checkOutDate) => {
 const SearchResults = props => {
   const [rowIndexClicked, setRowIndexClicked] = useState(null);
 
-  const handlerRowClicked = rowIndex => event => {
+  const handlerRowClicked = rowIndex => {
     if (rowIndexClicked !== rowIndex) {
       setRowIndexClicked(rowIndex);
     } else {
@@ -29,10 +29,10 @@ const SearchResults = props => {
   };
 
   return (
-    <div>
-      <table className="table">
+    <div className="table-responsive">
+      <table className="table table-bordered ">
         <thead className="thead-dark">
-          <tr>
+          <tr className="text-center">
             {Object.keys(props.results[0]).map((elem, index) => (
               <th className="text-center" scope="col" key={index}>
                 {elem}
@@ -49,9 +49,9 @@ const SearchResults = props => {
                 <tr
                   id={index}
                   className={rowIndexClicked === index ? "highlighted" : ""}
-                  onClick={handlerRowClicked(index)}
+                  onClick={() => handlerRowClicked(index)}
                 >
-                  {/* Map trough values of each property in array of objects  */}
+                  {/* Map through values of each property in array of objects  */}
                   {Object.values(item).map((val, index) => (
                     <td className="text-center" key={index}>
                       {val}
