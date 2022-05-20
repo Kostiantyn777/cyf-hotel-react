@@ -2,17 +2,8 @@ import React, { useState } from "react";
 import moment from "moment";
 
 const calculateNights = (checkInDate, checkOutDate) => {
-  // get CheckOutDate strings from FakeBookings object and convert each of them to array of numbers
-  let checkOutDateMoment = checkOutDate.split("-").map(function(item) {
-    return parseInt(item, 10);
-  });
-  // get checkInDate strings from FakeBookings object and convert each of them to array of numbers
-  let checkInDateMoment = checkInDate.split("-").map(function(item) {
-    return parseInt(item, 10);
-  });
-
-  var a = moment(checkOutDateMoment);
-  var b = moment(checkInDateMoment);
+  var a = moment(checkOutDate);
+  var b = moment(checkInDate);
 
   return <td className="text-center">{a.diff(b, "days")}</td>;
 };
