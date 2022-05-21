@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import moment from "moment";
+import SearchButton from "./SearchButton";
+import CustomerProfile from "./CustomerProfile";
 
 const calculateNights = (checkInDate, checkOutDate) => {
   var a = moment(checkOutDate);
@@ -35,6 +37,7 @@ const SearchResults = props => {
         <tbody>
           {/* Map trough array of objects  */}
           {props.results.map((item, index) => {
+            //console.log(item);
             return (
               <React.Fragment key={index}>
                 <tr
@@ -50,12 +53,16 @@ const SearchResults = props => {
                   ))}
 
                   {calculateNights(item.checkInDate, item.checkOutDate)}
+                  <td>
+                    <SearchButton buttonText="Show profile" />
+                  </td>
                 </tr>
               </React.Fragment>
             );
           })}
         </tbody>
       </table>
+      <CustomerProfile />
     </div>
   );
 };
