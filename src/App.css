@@ -101,3 +101,9 @@ footer ul {
   flex-wrap: wrap;
   align-items: center;
 }
+
+.loading-data-h1 {
+  text-align: center;
+  color: #060de9;
+  margin-bottom: 1.5rem;
+}

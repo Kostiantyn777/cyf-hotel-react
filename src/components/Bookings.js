@@ -7,7 +7,7 @@ const Bookings = () => {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    fetch("https://cyf-react.glitch.me/")
+    fetch("https://cyf-react.glitch.me")
       .then(res => res.json())
       .then(data => {
         setBookings(data);
@@ -32,7 +32,11 @@ const Bookings = () => {
       <div className="container">
         <Search search={search} />
 
-        {bookings.length > 0 ? <SearchResults results={bookings} /> : null}
+        {bookings.length > 0 ? (
+          <SearchResults results={bookings} />
+        ) : (
+          <h3 className="loading-data-h1">LOADING DATA.....</h3>
+        )}
       </div>
     </div>
   );
