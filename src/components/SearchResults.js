@@ -12,6 +12,11 @@ const calculateNights = (checkInDate, checkOutDate) => {
 
 const SearchResults = props => {
   const [rowIndexClicked, setRowIndexClicked] = useState(null);
+  const [clientId, setClientId] = useState("");
+
+  function handleId(someId) {
+    setClientId(someId);
+  }
 
   const handlerRowClicked = rowIndex => {
     if (rowIndexClicked !== rowIndex) {
@@ -32,6 +37,7 @@ const SearchResults = props => {
               </th>
             ))}
             <th scope="col">Number of Nights</th>
+            <th scope="col">Buttons</th>
           </tr>
         </thead>
         <tbody>
@@ -54,7 +60,10 @@ const SearchResults = props => {
 
                   {calculateNights(item.checkInDate, item.checkOutDate)}
                   <td>
-                    <SearchButton buttonText="Show profile" />
+                    <SearchButton
+                      onClick={() => handleId(item.id)}
+                      buttonText="Show profile"
+                    />
                   </td>
                 </tr>
               </React.Fragment>
@@ -62,7 +71,7 @@ const SearchResults = props => {
           })}
         </tbody>
       </table>
-      <CustomerProfile />
+      <CustomerProfile id={clientId} />
     </div>
   );
 };
