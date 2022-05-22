@@ -8,7 +8,12 @@ const Bookings = () => {
 
   useEffect(() => {
     fetch("https://cyf-react.glitch.me")
-      .then(res => res.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Something went wrong");
+      })
       .then(data => {
         setBookings(data);
       })
